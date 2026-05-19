@@ -1,7 +1,8 @@
+import Navbar from "@/components/sections/Navbar";
 export default function HomePage() {
   return (
-    <div>
-      Home Page
+    <div style={{ background: "#0a0a0f", minHeight: "100vh" }}>
+      <Navbar />
     </div>
   );
 }
