@@ -1,6 +1,4 @@
-// app/layout.tsx
-// The root layout wraps EVERY page in your app.
-// We add AuthProvider here so every page can access the logged-in user.
+// AuthProvider wraps everything so every page can call useAuth()
 
 import type { Metadata } from "next";
 import { AuthProvider } from "@/lib/authContext";
@@ -9,7 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "SpendAI — AI-Powered Expense Tracker",
   description:
-    "Track your expenses smarter with AI-powered insights, voice input, and weekly financial coaching.",
+    "Track your expenses smarter with AI insights, voice input, and weekly financial coaching.",
 };
 
 export default function RootLayout({
@@ -19,8 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="gradient-bg min-h-screen antialiased">
-        {/* AuthProvider wraps everything so any child can call useAuth() */}
+      <body style={{ background: "#0a0a0f" }} className="antialiased">
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
