@@ -1,4 +1,4 @@
-# SpendAI 💸
+# SpendAI 
 
 An AI-powered expense tracker that helps users log, analyze, and manage spending intelligently.
 
