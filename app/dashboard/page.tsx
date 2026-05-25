@@ -10,6 +10,7 @@ import AddExpenseForm from "@/components/dashboard/AddExpenseForm";
 import ExpenseList from "@/components/dashboard/ExpenseList";
 import AIInsights       from "@/components/dashboard/AIInsights";
 import Charts from "@/components/dashboard/Charts";
+import BudgetGoals from "@/components/dashboard/BudgetGoals";
 
 export default function DashboardPage() {
   const { user, loading } = useAuth();
@@ -60,6 +61,7 @@ export default function DashboardPage() {
 
         {/* Components */}
         <StatsCards expenses={expenses} />
+        <BudgetGoals />
         <AddExpenseForm />
         <AIInsights expenses={expenses} />
         <Charts expenses={expenses} />

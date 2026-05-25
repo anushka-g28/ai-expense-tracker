@@ -8,7 +8,10 @@ import {
   onSnapshot,
   Timestamp,
 } from "firebase/firestore";
+
 import { db } from "./firebase";
+import { BudgetGoal } from "./budgetGoals";
+import { getDocs } from "firebase/firestore";
 
 export interface Expense {
   id: string;
@@ -91,4 +94,16 @@ export function getTopCategory(expenses: Expense[]): string {
     totals[e.category] = (totals[e.category] || 0) + e.amount;
   });
   return Object.entries(totals).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "—";
+}
+
+export async function getExpenses(uid: string, month: number, year: number) {
+  const ref = collection(db, "expenses");
+  const q = query(ref, where("userId", "==", uid));
+  const snap = await getDocs(q);
+  return snap.docs
+    .map((d) => ({ id: d.id, ...d.data() } as Expense))
+    .filter((e) => {
+      const d = e.createdAt?.toDate ? e.createdAt.toDate() : new Date();
+      return d.getMonth() === month && d.getFullYear() === year;
+    });
 }
