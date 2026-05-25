@@ -14,7 +14,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!loading && user) router.push("/dashboard");
+    if (!loading && user) router.replace("/dashboard");
   }, [user, loading, router]);
 
   const handleGoogleSignIn = async () => {

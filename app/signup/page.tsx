@@ -14,7 +14,7 @@ export default function SignupPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!loading && user) router.push("/dashboard");
+    if (!loading && user) router.replace("/dashboard");
   }, [user, loading, router]);
 
   const handleGoogleSignUp = async () => {
