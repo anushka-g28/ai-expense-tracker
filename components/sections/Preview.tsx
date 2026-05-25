@@ -13,7 +13,8 @@ export default function Preview() {
         </div>
 
         {/* Mock Dashboard */}
-        <div style={{ ...glassStyle, borderRadius: "24px", padding: "24px" }}>
+        <div style={{ ...glassStyle, background: "rgba(18,18,28,0.85)",
+        border: "1px solid rgba(255,255,255,0.08)",borderRadius: "24px", padding: "24px" }}>
           {/* Week header */}
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -21,8 +22,7 @@ export default function Preview() {
               <p className="text-white text-3xl font-bold mt-1">Rs. 4,280</p>
             </div>
             <div
-              className="flex items-center gap-2 px-4 py-2 rounded-xl"
-              style={glassStyle}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-vilolet-400/10 border border-violet-400/30"
             >
               <div className="w-2 h-2 rounded-full bg-green-400" />
               <span className="text-green-400 text-sm font-medium">
