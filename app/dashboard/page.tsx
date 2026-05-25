@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/authContext";
 import { listenToExpenses, Expense } from "@/lib/firestore";
 import DashboardNavbar  from "@/components/dashboard/DashboardNavbar";
-import StatsCards       from "@/components/dashboard/StatsCards";
-import AddExpenseForm   from "@/components/dashboard/AddExpenseForm";
-import ExpenseList      from "@/components/dashboard/ExpenseList";
+import StatsCards from "@/components/dashboard/StatsCards";
+import AddExpenseForm from "@/components/dashboard/AddExpenseForm";
+import ExpenseList from "@/components/dashboard/ExpenseList";
+import AIInsights       from "@/components/dashboard/AIInsights";
 
 export default function DashboardPage() {
   const { user, loading } = useAuth();
@@ -57,9 +58,10 @@ export default function DashboardPage() {
         </div>
 
         {/* Components */}
-        <StatsCards     expenses={expenses} />
+        <StatsCards expenses={expenses} />
         <AddExpenseForm />
-        <ExpenseList    expenses={expenses} />
+        <AIInsights expenses={expenses} />
+        <ExpenseList expenses={expenses} />
       </main>
     </div>
   );
