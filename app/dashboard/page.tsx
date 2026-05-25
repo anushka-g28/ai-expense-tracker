@@ -39,7 +39,7 @@ export default function DashboardPage() {
       <DashboardNavbar />
 
       <main style={{
-        maxWidth: "680px",
+        maxWidth: "1200px",
         margin: "0 auto",
         padding: "36px 20px",
       }}>

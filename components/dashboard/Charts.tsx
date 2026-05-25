@@ -138,104 +138,127 @@ export default function Charts({ expenses }: Props) {
   };
 
   return (
-    <>
-      {/*PIE CHART*/}
-      <div style={cardStyle}>
-        <p style={titleStyle}>Spending by category</p>
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "16px",
+      marginBottom: "16px",
+    }}
+  >
+    {/* PIE CHART */}
+    <div style={cardStyle}>
+      <p style={titleStyle}>Spending by category</p>
 
-        <ResponsiveContainer width="100%" height={220}>
-          <PieChart>
-            <Pie
-              data={pieData}
-              cx="50%"
-              cy="50%"
-              innerRadius={55}
-              outerRadius={90}
-              paddingAngle={3}
-              dataKey="value"
-            >
-              {pieData.map((entry) => (
-                <Cell
-                  key={entry.name}
-                  fill={CATEGORY_COLORS[entry.name] ?? "#6b7280"}
-                  opacity={0.9}
-                />
-              ))}
-            </Pie>
-            <Tooltip content={<PieTooltip />} />
-          </PieChart>
-        </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height={220}>
+        <PieChart>
+          <Pie
+            data={pieData}
+            cx="50%"
+            cy="50%"
+            innerRadius={55}
+            outerRadius={90}
+            paddingAngle={3}
+            dataKey="value"
+          >
+            {pieData.map((entry) => (
+              <Cell
+                key={entry.name}
+                fill={CATEGORY_COLORS[entry.name] ?? "#6b7280"}
+                opacity={0.9}
+              />
+            ))}
+          </Pie>
+          <Tooltip content={<PieTooltip />} />
+        </PieChart>
+      </ResponsiveContainer>
 
-        {/* Legend */}
-        <div style={{
+      {/* Legend */}
+      <div
+        style={{
           display: "flex",
           flexWrap: "wrap",
           gap: "10px",
           marginTop: "8px",
           justifyContent: "center",
-        }}>
-          {pieData.map((entry) => (
+        }}
+      >
+        {pieData.map((entry) => (
+          <div
+            key={entry.name}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
+          >
             <div
-              key={entry.name}
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <div style={{
                 width: "8px",
                 height: "8px",
                 borderRadius: "50%",
-                background: CATEGORY_COLORS[entry.name] ?? "#6b7280",
+                background:
+                  CATEGORY_COLORS[entry.name] ?? "#6b7280",
                 flexShrink: 0,
-              }} />
-              <span style={{
+              }}
+            />
+            <span
+              style={{
                 color: "rgba(255,255,255,0.4)",
                 fontSize: "11px",
-              }}>
-                {entry.name}
-              </span>
-            </div>
-          ))}
-        </div>
+              }}
+            >
+              {entry.name}
+            </span>
+          </div>
+        ))}
       </div>
+    </div>
 
-      {/* BAR CHART  */}
-      <div style={cardStyle}>
-        <p style={titleStyle}>Daily spending - last 7 days</p>
+    {/* BAR CHART */}
+    <div style={cardStyle}>
+      <p style={titleStyle}>Daily spending - last 7 days</p>
 
-        <ResponsiveContainer width="100%" height={180}>
-          <BarChart
-            data={barData}
-            margin={{ top: 0, right: 0, left: -20, bottom: 0 }}
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.05)"
-              vertical={false}
-            />
-            <XAxis
-              dataKey="day"
-              tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tick={{ fill: "rgba(255,255,255,0.3)", fontSize: 11 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <Tooltip content={<BarTooltip />} cursor={{ fill: "rgba(255,255,255,0.03)" }} />
-            <Bar
-              dataKey="amount"
-              fill="#6366f1"
-              radius={[6, 6, 0, 0]}
-              opacity={0.85}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-    </>
-  );
+      <ResponsiveContainer width="100%" height={180}>
+        <BarChart
+          data={barData}
+          margin={{ top: 0, right: 0, left: -20, bottom: 0 }}
+        >
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="rgba(255,255,255,0.05)"
+            vertical={false}
+          />
+          <XAxis
+            dataKey="day"
+            tick={{
+              fill: "rgba(255,255,255,0.3)",
+              fontSize: 11,
+            }}
+            axisLine={false}
+            tickLine={false}
+          />
+          <YAxis
+            tick={{
+              fill: "rgba(255,255,255,0.3)",
+              fontSize: 11,
+            }}
+            axisLine={false}
+            tickLine={false}
+          />
+          <Tooltip
+            content={<BarTooltip />}
+            cursor={{ fill: "rgba(255,255,255,0.03)" }}
+          />
+          <Bar
+            dataKey="amount"
+            fill="#6366f1"
+            radius={[6, 6, 0, 0]}
+            opacity={0.85}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  </div>
+);
 }
