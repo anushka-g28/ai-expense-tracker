@@ -48,5 +48,5 @@ Deployed using Vercel.
 
 ## Author
 
-Built by Mayo
+Built by Anushka
 
