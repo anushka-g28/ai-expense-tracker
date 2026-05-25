@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { useAuth } from "@/lib/authContext";
 import { addExpense, CATEGORIES } from "@/lib/firestore";
 import VoiceButton from "./VoiceButton";
+import ReceiptScanner, { ScannedReceipt } from "@/components/dashboard/ReceiptScanner";
 
 export default function AddExpenseForm() {
   const { user } = useAuth();
@@ -22,10 +23,16 @@ export default function AddExpenseForm() {
     parsedCategory: string,
     fullText: string
   ) => {
-    if (parsedAmount)   setAmount(parsedAmount);
+    if (parsedAmount)  setAmount(parsedAmount);
     if (parsedCategory) setCategory(parsedCategory);
-    if (fullText)       setNote(fullText);
+    if (fullText) setNote(fullText);
   };
+
+  const handleScanComplete = (data: ScannedReceipt) => {
+  if (data.amount !== null) setAmount(String(data.amount));
+  if (data.category)        setCategory(data.category);
+  if (data.note)            setNote(data.note);
+};
 
   const handleSubmit = async () => {
     if (!user || !amount || Number(amount) <= 0 || saving.current) return;
@@ -97,6 +104,9 @@ export default function AddExpenseForm() {
           {error}
         </div>
       )}
+
+      {/* Receipt Scanner */}
+      <ReceiptScanner onScanComplete={handleScanComplete} />
 
       {/* Voice Button */}
       <VoiceButton onResult={handleVoiceResult} />
