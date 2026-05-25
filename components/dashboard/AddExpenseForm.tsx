@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { useAuth } from "@/lib/authContext";
 import { addExpense, CATEGORIES } from "@/lib/firestore";
+import VoiceButton from "./VoiceButton";
 
 export default function AddExpenseForm() {
   const { user } = useAuth();
@@ -15,6 +16,16 @@ export default function AddExpenseForm() {
 
   const [amountFocused, setAmountFocused] = useState(false);
   const [noteFocused, setNoteFocused] = useState(false);
+
+  const handleVoiceResult = (
+    parsedAmount: string,
+    parsedCategory: string,
+    fullText: string
+  ) => {
+    if (parsedAmount)   setAmount(parsedAmount);
+    if (parsedCategory) setCategory(parsedCategory);
+    if (fullText)       setNote(fullText);
+  };
 
   const handleSubmit = async () => {
     if (!user || !amount || Number(amount) <= 0 || saving.current) return;
@@ -86,6 +97,9 @@ export default function AddExpenseForm() {
           {error}
         </div>
       )}
+
+      {/* Voice Button */}
+      <VoiceButton onResult={handleVoiceResult} />
 
       <div style={{
         display: "grid",
