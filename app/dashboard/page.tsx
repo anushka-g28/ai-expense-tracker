@@ -9,6 +9,7 @@ import StatsCards from "@/components/dashboard/StatsCards";
 import AddExpenseForm from "@/components/dashboard/AddExpenseForm";
 import ExpenseList from "@/components/dashboard/ExpenseList";
 import AIInsights       from "@/components/dashboard/AIInsights";
+import Charts from "@/components/dashboard/Charts";
 
 export default function DashboardPage() {
   const { user, loading } = useAuth();
@@ -61,6 +62,7 @@ export default function DashboardPage() {
         <StatsCards expenses={expenses} />
         <AddExpenseForm />
         <AIInsights expenses={expenses} />
+        <Charts expenses={expenses} />
         <ExpenseList expenses={expenses} />
       </main>
     </div>
