@@ -42,7 +42,7 @@ export default function LoginPage() {
 
       <div className="w-full max-w-sm text-center">
 
-        <h1 className="text-3xl font-bold text-white mb-2">SpendAI</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">FinSoch</h1>
         <p className="text-gray-400 mb-10">Sign in to track your expenses</p>
 
         <button

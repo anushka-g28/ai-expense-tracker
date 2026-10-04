@@ -34,7 +34,7 @@ export default function DashboardNavbar() {
         fontSize: "16px",
         letterSpacing: "-0.02em",
       }}>
-        SpendAI
+        FinSoch
       </span>
 
       {/* Right side — avatar, name, sign out */}

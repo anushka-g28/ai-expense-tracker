@@ -1,4 +1,4 @@
-# SpendAI 
+# FinSoch 
 
 An AI-powered expense tracker that helps users log, analyze, and manage spending intelligently.
 

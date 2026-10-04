@@ -155,7 +155,7 @@ export default function AIInsights({ expenses }: Props) {
                 fontSize: "13px",
                 fontWeight: "600",
               }}>
-                SpendAI smart Insights
+                FinSoch smart Insights
               </p>
               <p style={{ color: "rgba(255,255,255,0.25)", fontSize: "11px" }}>
                 Based on your {expenses.length} expenses

@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="w-6 h-6 rounded-md bg-indigo-500 flex items-center justify-center">
             <PieChart className="w-3 h-3 text-white" />
           </div>
-          <span className="text-gray-400 text-sm">SpendAI</span>
+          <span className="text-gray-400 text-sm">FinSoch</span>
         </div>
       </div>
     </footer>

@@ -16,7 +16,7 @@ export default function FeatureCard({
       style={{
         ...glassStyle,
         background: "rgba(18,18,28,0.85)",
-    border: "1px solid rgba(255,255,255,0.08)",
+        border: "1px solid rgba(255,255,255,0.08)",
   }}
       className="rounded-5xl p-6 transition-all duration-300 hover:border-violet-400/30 hover:bg-white/5 "
     >

@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
 
     // The prompt we send to Gemini
     const prompt = `
-You are SpendAI, a smart and friendly personal finance coach.
+You are FinSoch, a smart and friendly personal finance coach.
 
 Analyze the user's weekly expenses and provide practical, data-driven insights.
 
@@ -73,16 +73,16 @@ INSTRUCTIONS
 
 OUTPUT FORMAT
 
-#Weekly Summary
+1)Weekly Summary
 (1-2 sentences)
 
-#Spending Pattern
+2)Spending Pattern
 (mention highest/unusual spending category)
 
-#Smart Tip
+3)Smart Tip
 (one actionable suggestion)
 
-#Budget Recommendation
+4)Budget Recommendation
 (a realistic weekly spending target)
 `;
 

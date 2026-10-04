@@ -5,7 +5,7 @@ import { AuthProvider } from "@/lib/authContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SpendAI — AI-Powered Expense Tracker",
+  title: "FinSoch — AI-Powered Expense Tracker",
   description:
     "Track your expenses smarter with AI insights, voice input, and weekly financial coaching.",
 };

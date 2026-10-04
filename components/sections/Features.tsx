@@ -11,7 +11,7 @@ const features = [
   },
   {
     icon: Brain,
-    title: "SpendAI financial coach",
+    title: "FinSoch financial coach",
     description: "Gemini analyzes spending and gives savings tips."
  },
  {
